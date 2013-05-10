@@ -4,9 +4,8 @@
   <property name="tools.dir" value="${basedir}/tools" />
 
   <path id="project.classpath">
-    <pathelement location="${basedir}/jar/junit-4.8.2.jar"/>
-    <pathelement location="${basedir}/jar/junit-dep-4.8.2.jar"/>
-    <pathelement location="${htmlunit.dir}/xml-apis-1.3.04.jar" />
+    <pathelement location="${basedir}/jar/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/jar/junit-4.11.jar"/>
     <pathelement location="${basedir}/classes"/>
   </path>
 
@@ -41,14 +40,14 @@
     <echo file="info.txt" append="true" message="CVS_BRANCH=${env.CVS_BRANCH}${line.separator}" />
   </target>
 
-  <target name="format" depends="info,flags" unless="is.jenkins">
-    <jalopy convention="${basedir}/tools/jalopy/sun.xml"
-            history="file"
-            historymethod="adler32"
-            encoding="iso-8859-1">
-      <fileset dir="${basedir}" includes="**/*.java"/>
-    </jalopy>
-  </target>
+  <!-- <target name="format" depends="info,flags" unless="is.jenkins"> -->
+  <!--   <jalopy convention="${basedir}/tools/jalopy/sun.xml" -->
+  <!--           history="file" -->
+  <!--           historymethod="adler32" -->
+  <!--           encoding="iso-8859-1"> -->
+  <!--     <fileset dir="${basedir}" includes="**/*.java"/> -->
+  <!--   </jalopy> -->
+  <!-- </target> -->
 
   <target name="clean">
     <delete dir="classes"/>
@@ -56,7 +55,8 @@
     <delete file="findbugs.xml" />
   </target>
 
-  <target name="compile" depends="format">
+  <!-- <target name="compile" depends="format"> -->
+  <target name="compile">
     <mkdir dir="classes"/>
     <javac classpathref="project.classpath"
            debug="on"
