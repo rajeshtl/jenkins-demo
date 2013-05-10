@@ -1,5 +1,8 @@
 *.class
+info.txt
+TEST-*.txt
+TEST-*.xml
 
 # Package Files #
-*.war
 *.ear
+*.war
