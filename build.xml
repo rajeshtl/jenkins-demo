@@ -63,6 +63,7 @@
   <target name="clean">
     <delete dir="classes"/>
     <delete dir="." includes="TEST-*" />
+    <delete file="info.txt" />
     <delete file="findbugs.xml" />
   </target>
 
