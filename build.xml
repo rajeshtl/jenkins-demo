@@ -81,7 +81,7 @@
 
   <target name="test" depends="compile">
     <junit printsummary="yes"
-           fork="no"
+           fork="yes"
            reloading="false"
            failureProperty="junit.failed">
       <classpath refid="project.classpath"/>
