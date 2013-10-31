@@ -88,7 +88,6 @@
   <target name="run" depends="test">
     <java classname="com.markwaite.MarkWaite" classpathref="project.classpath" />
   </target>
-  <!-- TODO: comment this file needs -->
 
 </project>
 
