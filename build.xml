@@ -40,14 +40,25 @@
     <echo file="info.txt" append="true" message="CVS_BRANCH=${env.CVS_BRANCH}${line.separator}" />
   </target>
 
-  <!-- <target name="format" depends="info,flags" unless="is.jenkins"> -->
-  <!--   <jalopy convention="${basedir}/tools/jalopy/sun.xml" -->
-  <!--           history="file" -->
-  <!--           historymethod="adler32" -->
-  <!--           encoding="iso-8859-1"> -->
-  <!--     <fileset dir="${basedir}" includes="**/*.java"/> -->
-  <!--   </jalopy> -->
-  <!-- </target> -->
+  <!-- ======================================================= -->
+  <!-- Defines the Jalopy task used to format Java source code -->
+  <!-- ======================================================= -->
+  <taskdef name="jalopy" classname="de.hunsicker.jalopy.plugin.ant.AntPlugin">
+    <classpath>
+      <fileset dir="${basedir}/tools/jalopy/">
+        <include name="**/*.jar"/>
+      </fileset>
+    </classpath>
+  </taskdef>
+
+  <target name="format" depends="info,flags" unless="is.jenkins">
+    <jalopy convention="${basedir}/tools/jalopy/sun.xml"
+            history="file"
+            historymethod="adler32"
+            encoding="iso-8859-1">
+      <fileset dir="${basedir}" includes="**/*.java"/>
+    </jalopy>
+  </target>
 
   <target name="clean">
     <delete dir="classes"/>
@@ -55,8 +66,8 @@
     <delete file="findbugs.xml" />
   </target>
 
-  <!-- <target name="compile" depends="format"> -->
-  <target name="compile">
+  <target name="compile" depends="format">
+  <!-- <target name="compile"> -->
     <mkdir dir="classes"/>
     <javac classpathref="project.classpath"
            debug="on"
@@ -90,4 +101,3 @@
   </target>
 
 </project>
-
