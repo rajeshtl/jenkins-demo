@@ -27,12 +27,12 @@ public class TestMarkWaite {
 
     @Test
     public void getNameStartsWithMark() {
-        assertTrue("Wrong name: '" + me.getName() + "'", me.getName().startsWith("Mark"));
+        assertTrue("Wrong name start: '" + me.getName() + "'", me.getName().startsWith("Mark"));
     }
 
     @Test
     public void getFormName() {
-        assertEquals("Wrong name", "Mark's form", me.getFormName());
+        assertEquals("Wrong form name", "Mark's form", me.getFormName());
     }
 
     @Test
