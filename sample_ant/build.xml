@@ -31,13 +31,12 @@
   </target>
 
   <target name="check-my-network">
-    <echo>ADDR4=${hostinfo.ADDR4}</echo>
-    <condition property="is.CA.network">
+    <condition property="is.home.network">
       <or>
-        <matches string="${hostinfo.ADDR4}" pattern="^138\."/>
-        <matches string="${hostinfo.ADDR4}" pattern="^10\."/>
+        <matches string="${hostinfo.ADDR4}" pattern="^172\.16\.16\."/>
       </or>
     </condition>
+    <echo>ADDR4=${hostinfo.ADDR4} is.home.network=${is.home.network}</echo>
   </target>
 
   <target name="check-javac-location">
